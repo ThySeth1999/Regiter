@@ -1,0 +1,83 @@
+﻿@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+@model IEnumerable<MovieApp.Models.Movie>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_Layout";
+}
+<body>
+    <header class="p-3 bg-dark text-white">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+        </a>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
+          <li><a href="/Movie/CreateMovieForm" class="nav-link px-2 text-white">Add Movies</a></li>  
+          <li><a href="#" class="nav-link px-2 text-white">Movie Detail</a></li>
+          <li><a href="#" class="nav-link px-2 text-white">Cinema</a></li>
+          <li><a href="#" class="nav-link px-2 text-white">About</a>
+              
+          </li>
+        </ul>
+
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+          <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+        </form>
+
+        <div class="text-end">
+          <button type="button" class="btn btn-outline-light me-2">Login</button>
+          <button type="button" class="btn btn-warning">Sign-up</button>
+        </div>
+      </div>
+    </div>
+  </header>
+ 
+    <!-- End Navbar -->
+      <div class="content">
+        <div class="mx-5 my-5">
+            <table class="table table-blue table-striped">
+                <thead>
+                  <tr>
+                      <th> @Html.DisplayNameFor(model=>model.MovieTittle) </th>
+                      <th> @Html.DisplayNameFor(model=>model.Duration) </th> 
+                      <th> @Html.DisplayNameFor(model=>model.Subtitle) </th>
+                      <th> @Html.DisplayNameFor(model=>model.MovieLanguage) </th>
+                      <th> @Html.DisplayNameFor(model=>model.MovieType) </th> 
+                      
+                      <th>Action</th>
+         
+                  </tr>
+                </thead>
+                <tbody>
+                    @foreach (MovieApp.Models.Movie movie in Model)
+                    {
+                        <tr class="table-primary">
+                          <td> @Html.DisplayFor(m=>movie.MovieTittle) </td>
+                          <td> @Html.DisplayFor(m=>movie.Duration) </td>   
+                          <td> @Html.DisplayFor(m=>movie.Subtitle) </td>   
+                          <td> @Html.DisplayFor(m=>movie.MovieType) </td>
+                          <td> @Html.DisplayFor(m=>movie.MovieLanguage) </td>
+                          <td>
+                              
+                              <a asp-route-Id="@movie.Id" asp-controller="Movie" asp-action="Edit">Edit</a>
+                              
+                              <form asp-action="Delete"  asp-controller="Movie" asp asp-route-Id="@movie.Id">
+                                  <button>Delete</button>
+
+                              </form>
+                          </td>
+                        </tr>  
+                    }  
+                </tbody>
+               
+            </table>
+            </div>
+       </div>
+       <div class="b-example-divider"></div>
+
+<div class="container">
+  
+</div>
+</body>

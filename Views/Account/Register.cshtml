@@ -1,0 +1,81 @@
+﻿@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+
+@model MovieApp.Models.Admin.RegisterModel
+@{
+    ViewData["Title"] = "Register";
+      Layout = "_Layout";
+}
+
+<header>
+     <header class="p-3 bg-dark text-white">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+        </a>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="/Movie/CreateMovieForm" class="nav-link px-2 text-secondary">Home</a></li>
+          <li><a href="/Movie/CreateMovieForm" class="nav-link px-2 text-white">Add Movies</a></li>  
+          <li><a href="/Movie/index" class="nav-link px-2 text-white">Movie Detail</a></li>
+          <li><a href="#" class="nav-link px-2 text-white">Cinema</a></li>
+          <li><a href="#" class="nav-link px-2 text-white">About</a>
+              
+          </li>
+        </ul>
+
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+          <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+        </form>
+
+        <div class="text-end">
+          <button type="button" </li> <a href="/Account/Login" class="btn btn-outline-light me-2">Login </a></li> </button>
+          <button type="button" class="btn btn-warning">Sign-up</button>
+        </div>
+      </div>
+    </div>
+  </header>
+</header>
+
+
+
+
+
+
+<h1>Register</h1>
+<form asp-action="Register">
+    <div asp-validation-summary=All></div>
+    
+    <div class="mx-5 my-5">
+    <div class="mb-2">
+        <label asp-for="UserName"></label>
+        <input asp-for="UserName" class="form-control"/>
+
+    </div>
+
+     <div class="mb-2">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control"/>
+
+    </div>
+
+     <div class="mb-2">
+        <label asp-for="Password"></label>
+        <input asp-for="Password" class="form-control"/>
+
+    </div>
+     <div class="mb-2">
+        <label asp-for="ConfirmPassword"></label>
+        <input asp-for="ConfirmPassword" class="form-control"/>
+
+    </div>
+    
+    <button type="submit">Register</button>
+    </div>
+
+
+
+
+
+</form>
+
